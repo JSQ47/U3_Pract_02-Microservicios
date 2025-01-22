@@ -1,5 +1,5 @@
 ===================================================
-            # MICROSERVICIOS 
+            MICROSERVICIOS 
 ===================================================
 
 Este proyecto implementa un sistema de autenticación (Auth Service) y un servicio de gestión de productos (Products Service) basado en microservicios. Los servicios están contenedorizados con Docker y se comunican a través de una red compartida.
