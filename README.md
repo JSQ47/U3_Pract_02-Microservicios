@@ -8,13 +8,13 @@ Este proyecto implementa un sistema de autenticación (Auth Service) y un servic
 1. ESTRUCTURA DEL PROYECTO
 ---------------------------------------------------
 
-/auth-service/
+**/auth-service/**
   - Contiene la lógica para registro de usuarios, inicio de sesión y verificación de tokens.
 
-/products-service/
+**/products-service/**
   - Gestión de productos. Incluye la creación y consulta de productos protegidos por autenticación.
 
-/docker-compose.yml
+**/docker-compose.yml**
   - Configuración de Docker Compose para levantar los servicios en contenedores separados.
 
 ---------------------------------------------------
