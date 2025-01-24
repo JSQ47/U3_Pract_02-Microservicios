@@ -1,0 +1,48 @@
+ 
+services:
+  mongo:
+    image: mongo
+    container_name: mongo
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=usuario
+      - MONGO_INITDB_ROOT_PASSWORD=password
+
+  auth-service:
+    build:
+      context: ./auth-service
+    container_name: auth-service
+    ports:
+      - "3002:3000"
+    environment:
+      - MONGO_URI=mongodb://usuario:password@mongo:27017/auth-db?authSource=admin
+    depends_on:
+      - mongo
+    env_file:
+      - ./auth-service/.env
+  products-service:
+    build:
+      context: ./products-service
+    container_name: products-service
+    ports:
+      - "3001:3000"
+    environment:
+      - MONGO_URI=mongodb://usuario:password@mongo:27017/products-db?authSource=admin
+    depends_on:
+      - mongo
+    env_file:
+      - ./products-service/.env
+
+  user-service:
+    build:
+      context: ./user-service
+    container_name: user-service
+    ports:
+      - "3000:3000"
+    environment:
+      - MONGO_URI=mongodb://usuario:password@mongo:27017/products-db?authSource=admin
+    depends_on:
+      - mongo
+    env_file:
+      - ./products-service/.env
